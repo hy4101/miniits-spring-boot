@@ -21,8 +21,29 @@ public class UserController {
     @Autowired
     private IUserRepository iUserRepository;
 
-    @GetMapping("findUserById/{id}")
-    public User getUser(@PathVariable(name = "id") String id) {
-       return iUserRepository.findOne(id);
+    /**
+     * JPA 的增、删、改、查
+     *
+     * @return
+     */
+    @GetMapping("testUserById")
+    public void getUser() {
+        String id = "12345";
+        User user = new User();
+        user.setId(id);
+        user.setAge(23);
+        //新增
+        iUserRepository.save(user);
+
+        //查找
+        user = iUserRepository.findOne(id);
+
+        //修改
+        user.setAge(12);
+        iUserRepository.save(user);
+
+        //删除
+        iUserRepository.delete(user);
+
     }
 }
