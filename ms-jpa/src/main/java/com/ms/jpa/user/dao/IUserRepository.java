@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
+
 /**
  * @author: wq
  * @Date: 2017/10/16
@@ -88,7 +90,7 @@ public interface IUserRepository extends JpaRepository<User, String> {
      * @param name
      * @return
      */
-    User findByNameLike(String name);
+    List<User> findByNameLike(String name);
 
     /**
      * 删除

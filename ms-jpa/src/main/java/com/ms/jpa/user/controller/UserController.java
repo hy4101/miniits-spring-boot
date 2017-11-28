@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * @author: WWW.MINIITS.COM
  * @Date: 2017/10/24
@@ -60,8 +62,8 @@ public class UserController {
         logger.info("查找 5" + user.toString());
 
         //查找 6
-        user = iUserRepository.findByNameLike(user.getName());
-        logger.info("查找 6" + user.toString());
+        List<User> users = iUserRepository.findByNameLike(user.getName());
+        logger.info("查找 6" + users.toString());
 
         //修改 1
         user.setAge(12);
